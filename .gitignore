@@ -1,19 +1,58 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
-[Oo]bj/ # FlashDevelop obj
-[Bb]in/ # FlashDevelop bin
-
-# Other files and folders
+######## Eclipse ########
+.classpath
+.project
 .settings/
+.springBeans
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+.buildpath
+.factorypath
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+######## Intellij ########
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+######## Maven ########
+log/
+target/
+git.properties
+
+######## Gradle ########
+.gradle/
+
+######## Directorios ########
+build/
+bin/
+spring_loaded/
+deploy/
+
+######## Windows ########
+Thumbs.db
+Desktop.ini
+
+######## Mac OSX ########
+.DS_Store
+
+######## Logs ########
+*.log
+
+######## Packages ########
+*.jar
+*.war
+*.ear
+*.db
+
+######## UI ########
+.bower_cache/
+.tmp/
+bower_components/
+node/
+node_modules/
+.sass-cache/
