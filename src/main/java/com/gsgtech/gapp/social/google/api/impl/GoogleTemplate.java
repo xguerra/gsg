@@ -35,6 +35,7 @@ import org.springframework.social.oauth2.OAuth2Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gsgtech.gapp.social.google.api.Google;
 import com.gsgtech.gapp.social.google.api.UserOperations;
+import com.gsgtech.gapp.social.google.api.analytics.AnalyticsOperations;
 
 /**
  * <p>
@@ -50,6 +51,7 @@ import com.gsgtech.gapp.social.google.api.UserOperations;
  */
 public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 	private UserOperations userOperations;
+	private AnalyticsOperations analyticsOperantions;
 	private String accessToken;
 
 
@@ -109,6 +111,10 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 
 	public String getAccessToken() {
 		return accessToken;
+	}
+
+	public AnalyticsOperations analyticsOperations() {
+		return analyticsOperantions;
 	}
 
 }

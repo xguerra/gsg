@@ -17,6 +17,8 @@ package com.gsgtech.gapp.social.google.api;
 
 import org.springframework.social.ApiBinding;
 
+import com.gsgtech.gapp.social.google.api.analytics.AnalyticsOperations;
+
 /**
  * Interface specifying a basic set of operations for interacting with Google
  * APIs. Implemented by {@link GoogleTemplate}.
@@ -33,7 +35,21 @@ public interface Google extends ApiBinding {
 	 *         
 	 */
 	UserOperations userOperations();
-
+	
+	/**
+	 * Obtiene {@link AnalyticsOperations}, usado para obtener las operaciones expuestas en la
+	 * la API de Google Analytics.
+	 * Algunos métodos requieren de al menos uno de los OAuth2 scope siguientes:
+	 * https://www.googleapis.com/auth/analytics.readonly | Acceso de solo lectura a la API de Analytics.
+	 * https://www.googleapis.com/auth/analytics | Acceso de escritura a la API de Analytics.
+	 * https://www.googleapis.com/auth/analytics.edit | Modificar entidades de administración de Google Analytics.
+	 * https://www.googleapis.com/auth/analytics.manage.users | Ver y administrar los permisos de usuario de las cuentas de Analytics.
+	 * https://www.googleapis.com/auth/analytics.manage.users.readonly | Ver permisos de usuarios de Google Analytics.
+	 *@return {@link AnalyticsOperations} Para el usuario autenticado
+	 *         
+	 */
+	AnalyticsOperations analyticsOperations();
+	
 	/**
 	 * Returns the access token, allowing interoperability with other libraries
 	 *
