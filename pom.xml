@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>com.gsgtech.gapp</groupId>
-  <artifactId>gsg-social-google</artifactId>
+  <artifactId>gsg-social-google-connector</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>GSG Social Google</name>
   
