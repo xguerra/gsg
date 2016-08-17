@@ -17,7 +17,9 @@ package com.gsgtech.gapp.social.google.api;
 
 import org.springframework.social.ApiBinding;
 
-import com.gsgtech.gapp.social.google.api.analytics.AnalyticsOperations;
+import com.gsgtech.gapp.social.google.api.analytics.AdminAnalyticsOperations;
+import com.gsgtech.gapp.social.google.api.analytics.MultiChanelFunnelOperations;
+import com.gsgtech.gapp.social.google.api.analytics.ReportCentralOperations;
 
 /**
  * Interface specifying a basic set of operations for interacting with Google
@@ -37,8 +39,8 @@ public interface Google extends ApiBinding {
 	UserOperations userOperations();
 	
 	/**
-	 * Obtiene {@link AnalyticsOperations}, usado para obtener las operaciones expuestas en la
-	 * la API de Google Analytics.
+	 * Obtiene {@link AdminAnalyticsOperations}, usado para obtener las operaciones expuestas 
+	 * en la API de Administración de Google Analytics.
 	 * Algunos métodos requieren de al menos uno de los OAuth2 scope siguientes:
 	 * https://www.googleapis.com/auth/analytics.readonly | Acceso de solo lectura a la API de Analytics.
 	 * https://www.googleapis.com/auth/analytics | Acceso de escritura a la API de Analytics.
@@ -48,7 +50,27 @@ public interface Google extends ApiBinding {
 	 *@return {@link AnalyticsOperations} Para el usuario autenticado
 	 *         
 	 */
-	AnalyticsOperations analyticsOperations();
+	AdminAnalyticsOperations adminAnalyticsOperations();
+	
+	/**
+	 * Obtiene {@link ReportCentralOperations}, usado para obtener las operaciones expuestas en
+	 * la API de Informes Centrales de Google Analytics.
+	 * Se requieren del OAuth2 scope siguiente:
+	 * https://www.googleapis.com/auth/analytics.readonly | Acceso de solo lectura a la API.
+	 *@return {@link ReportCentralOperations} Para el usuario autenticado.
+	 *         
+	 */
+	ReportCentralOperations reportCentralOperations();
+	
+	/**
+	 * Obtiene {@link MultiChanelFunnelOperations}, usado para obtener las operaciones expuestas 
+	 * en la API de Informes de embudos Multi Canal de Google Analytics.
+	 * Se requieren del OAuth2 scope siguiente:
+	 * https://www.googleapis.com/auth/analytics.readonly | Acceso de solo lectura a la API.
+	 *@return {@link MultiChanelFunnelOperations} Para el usuario autenticado.
+	 *         
+	 */
+	MultiChanelFunnelOperations multiChanelFunnelOperations();
 	
 	/**
 	 * Returns the access token, allowing interoperability with other libraries

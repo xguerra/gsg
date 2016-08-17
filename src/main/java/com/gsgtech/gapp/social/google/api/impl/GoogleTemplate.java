@@ -35,7 +35,12 @@ import org.springframework.social.oauth2.OAuth2Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gsgtech.gapp.social.google.api.Google;
 import com.gsgtech.gapp.social.google.api.UserOperations;
-import com.gsgtech.gapp.social.google.api.analytics.AnalyticsOperations;
+import com.gsgtech.gapp.social.google.api.analytics.AdminAnalyticsOperations;
+import com.gsgtech.gapp.social.google.api.analytics.MultiChanelFunnelOperations;
+import com.gsgtech.gapp.social.google.api.analytics.ReportCentralOperations;
+import com.gsgtech.gapp.social.google.api.analytics.impl.AdminAnalyticsTemplate;
+import com.gsgtech.gapp.social.google.api.analytics.impl.MultiChanelFunnelsReportsTemplate;
+import com.gsgtech.gapp.social.google.api.analytics.impl.ReportsCentralTemplate;
 
 /**
  * <p>
@@ -51,7 +56,9 @@ import com.gsgtech.gapp.social.google.api.analytics.AnalyticsOperations;
  */
 public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 	private UserOperations userOperations;
-	private AnalyticsOperations analyticsOperantions;
+	private AdminAnalyticsOperations adminAnalyticsOperations;
+	private ReportCentralOperations reportCentralOperations;
+	private MultiChanelFunnelOperations multiChanelFunnelOperations;
 	private String accessToken;
 
 
@@ -75,7 +82,11 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 	}
 
 	private void initialize() {
-		userOperations = new UserTemplate(getRestTemplate(), isAuthorized()); 
+		userOperations = new UserTemplate(getRestTemplate(), isAuthorized());
+		adminAnalyticsOperations = new AdminAnalyticsTemplate(getRestTemplate(), isAuthorized());
+		reportCentralOperations = new ReportsCentralTemplate(getRestTemplate(), isAuthorized());
+		multiChanelFunnelOperations = new MultiChanelFunnelsReportsTemplate(getRestTemplate(),
+				isAuthorized());
 	}
 
 	@Override
@@ -113,8 +124,16 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 		return accessToken;
 	}
 
-	public AnalyticsOperations analyticsOperations() {
-		return analyticsOperantions;
+	public AdminAnalyticsOperations adminAnalyticsOperations() {
+		return adminAnalyticsOperations;
+	}
+
+	public ReportCentralOperations reportCentralOperations() {
+		return reportCentralOperations;
+	}
+
+	public MultiChanelFunnelOperations multiChanelFunnelOperations() {
+		return multiChanelFunnelOperations;
 	}
 
 }
