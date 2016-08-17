@@ -64,7 +64,7 @@ public interface Google extends ApiBinding {
 	
 	/**
 	 * Obtiene {@link MultiChanelFunnelOperations}, usado para obtener las operaciones expuestas 
-	 * en la API de Informes de embudos Multi Canal de Google Analytics.
+	 * en la API de Informes de embudos MultiCanal de Google Analytics.
 	 * Se requieren del OAuth2 scope siguiente:
 	 * https://www.googleapis.com/auth/analytics.readonly | Acceso de solo lectura a la API.
 	 *@return {@link MultiChanelFunnelOperations} Para el usuario autenticado.
